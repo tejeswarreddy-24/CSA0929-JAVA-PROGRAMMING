@@ -1,0 +1,35 @@
+import java.util.HashMap;
+
+public class ATM {
+
+    private static HashMap<Integer, Integer> denominations = new HashMap<>();
+
+    public static void main(String[] args) {
+
+        initializeDenominations();
+
+        // Calculate and print total amount available
+        int totalAmount = calculateTotalAmount();
+        System.out.println("Total amount available in ATM: $" + totalAmount);
+    }
+
+
+    private static void initializeDenominations() {
+        denominations.put(100, 10); // $100 bills
+        denominations.put(50, 20);  // $50 bills
+        denominations.put(20, 30);  // $20 bills
+        denominations.put(10, 40);  // $10 bills
+        denominations.put(5, 50);   // $5 bills
+        denominations.put(1, 100);  // $1 bills
+    }
+
+
+    private static int calculateTotalAmount() {
+        int totalAmount = 0;
+        for (int denomination : denominations.keySet()) {
+            int count = denominations.get(denomination);
+            totalAmount += denomination * count;
+        }
+        return totalAmount;
+    }
+}
