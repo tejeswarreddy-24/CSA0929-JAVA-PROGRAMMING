@@ -1,0 +1,58 @@
+public class IllegalArgumentExcptions {
+        public static void main(String[] args) {
+            // a) Negative Argument in the method requiring non-negative values
+            try {
+                int radius = -5;
+                double area = calculateCircleArea(radius); // Negative argument
+            } catch (IllegalArgumentException e) {
+                System.out.println("Radius cannot be negative");
+            }
+
+            // b) Invalid Enum Constant Passed to a Method
+            try {
+                String day = "Someday";
+                DayOfWeek dayOfWeek = DayOfWeek.valueOf(day); // Invalid enum constant
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid enum constant passed");
+            }
+
+            // c) Setting an Invalid Range for a Method Parameter
+            try {
+                int age = 150;
+                validateAge(age); // Invalid age range
+            } catch (IllegalArgumentException e) {
+                System.out.println("Invalid age range");
+            }
+
+            // d) Empty or Null String Argument in a Method Requiring
+            try {
+                String name = "";
+                validateName(name); // Empty string argument
+            } catch (IllegalArgumentException e) {
+                System.out.println("Name cannot be empty");
+            }
+        }
+
+        public static double calculateCircleArea(int radius) {
+            if (radius < 0) {
+                throw new IllegalArgumentException("Radius cannot be negative");
+            }
+            return Math.PI * radius * radius;
+        }
+
+        public static void validateAge(int age) {
+            if (age < 0 || age > 120) {
+                throw new IllegalArgumentException("Invalid age range");
+            }
+        }
+
+        public static void validateName(String name) {
+            if (name == null || name.isEmpty()) {
+                throw new IllegalArgumentException("Name cannot be empty");
+            }
+        }
+
+        enum DayOfWeek {
+            MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
+        }
+    }
