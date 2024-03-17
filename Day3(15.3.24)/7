@@ -1,0 +1,25 @@
+class NonIntegerValueException extends Exception {
+    public NonIntegerValueException(String message) {
+        super(message);
+    }
+}
+
+class UserInputProcessor1 {
+    public void processInput(double value) throws NonIntegerValueException {
+        if (value != (int)value) {
+            throw new NonIntegerValueException("Non-integer value entered");
+        }
+    }
+}
+
+public class NonIntegerException {
+    public static void main(String[] args) {
+        try {
+            UserInputProcessor1 processor = new UserInputProcessor1();
+            processor.processInput(3.14);
+            System.out.println("Input value is valid.");
+        } catch (NonIntegerValueException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
