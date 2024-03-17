@@ -1,0 +1,28 @@
+class ArmstrongThread extends Thread {
+    @Override
+    public void run() {
+        System.out.println("Thread T1 for Armstrong numbers started.");
+        // Implement Armstrong number logic here
+        System.out.println("Thread T1 for Armstrong numbers ended.");
+    }
+}
+
+class FibonacciThread extends Thread {
+    @Override
+    public void run() {
+        System.out.println("Thread T2 for Fibonacci series started.");
+        // Implement Fibonacci series logic here
+        System.out.println("Thread T2 for Fibonacci series ended.");
+    }
+}
+
+public class threadarmstrong{
+    public static void main(String[] args) {
+        ArmstrongThread t1 = new ArmstrongThread();
+        FibonacciThread t2 = new FibonacciThread();
+
+        t1.start();
+        t2.start();
+    }
+}
+
