@@ -1,0 +1,27 @@
+class NegativeValueException extends Exception {
+    public NegativeValueException(String message) {
+        super(message);
+    }
+}
+
+class UserInputProcessor {
+    public void processInput(int value) throws NegativeValueException {
+        if (value < 0) {
+            throw new NegativeValueException("Negative values are not allowed");
+        }
+        // Process the value
+    }
+}
+
+public class NegvalueException{
+    public static void main(String[] args) {
+        try {
+            UserInputProcessor processor = new UserInputProcessor();
+            processor.processInput(-5);
+            System.out.println("Input value is valid.");
+        } catch (NegativeValueException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
