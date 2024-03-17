@@ -1,0 +1,16 @@
+import java.text.DecimalFormat;
+import java.text.ParseException;
+
+public class NumberFormatExceptions {
+    public static void main(String[] args) {
+        // c) Formatting Issues in “Decimal Format”
+        try {
+            String number = "123.45";
+            DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
+            java.lang.Number parsedNumber = decimalFormat.parse(number); // Corrected type
+            System.out.println("Parsed number: " + parsedNumber);
+        } catch (ParseException e) {
+            System.out.println("Formatting issue in decimal format");
+        }
+    }
+}
