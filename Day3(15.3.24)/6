@@ -1,0 +1,27 @@
+class InvalidDecimalException extends Exception {
+    public InvalidDecimalException(String message) {
+        super(message);
+    }
+}
+
+class UserInputsProcessor {
+    public void processInput(double value) throws InvalidDecimalException {
+        if (value != Math.floor(value)) {
+            throw new InvalidDecimalException("Invalid decimal number entered");
+        }
+        // Process the value
+    }
+}
+
+public class DecimalException {
+    public static void main(String[] args) {
+        try {
+            UserInputsProcessor processor = new UserInputsProcessor();
+            processor.processInput(3.14);
+            System.out.println("Input value is valid.");
+        } catch (InvalidDecimalException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
+
