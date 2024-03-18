@@ -1,0 +1,29 @@
+def calculate_grade(aggregate):
+    if aggregate > 75:
+        return "Distinction"
+    elif aggregate >= 60:
+        return "First Division"
+    elif aggregate >= 50:
+        return "Second Division"
+    elif aggregate >= 40:
+        return "Third Division"
+    else:
+        return "Fail"
+
+def main():
+    marks = []
+    for i in range(4):
+        subject_mark = float(input("Enter marks for subject {}: ".format(i+1)))
+        marks.append(subject_mark)
+
+    total_marks = sum(marks)
+    aggregate = total_marks / 4
+
+    grade = calculate_grade(aggregate)
+
+    print("Total Marks:", total_marks)
+    print("Aggregate:", aggregate)
+    print("Grade Obtained:", grade)
+
+if _name_ == "_main_":
+    main()
