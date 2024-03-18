@@ -1,0 +1,26 @@
+def sum_of_divisors(n):
+    divisors_sum = 1
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            divisors_sum += i
+            if i != n // i:
+                divisors_sum += n // i
+    return divisors_sum
+
+def is_perfect_number(num):
+    return sum_of_divisors(num) == num
+
+def first_n_perfect_numbers(n):
+    count = 0
+    num = 2
+    perfect_numbers = []
+    while count < n:
+        if is_perfect_number(num):
+            perfect_numbers.append(num)
+            count += 1
+        num += 1
+    return perfect_numbers
+
+n = int(input("Enter the value of n: "))
+perfect_numbers = first_n_perfect_numbers(n)
+print("First", n, "perfect numbers are:", perfect_numbers)
