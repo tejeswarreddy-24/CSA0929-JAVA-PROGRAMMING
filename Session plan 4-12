@@ -1,0 +1,16 @@
+def remove_duplicates(array):
+    # Use a set to store unique items
+    unique_items = set()
+    # Initialize an empty list to store the result
+    result = []
+    for item in array:
+        # If the item is not in the set, add it to the set and result list
+        if item not in unique_items:
+            unique_items.add(item)
+            result.append(item)
+    return result
+
+# Example usage:
+array = [1, 2, 3, 4, 1, 2, 5, 6, 3]
+result = remove_duplicates(array)
+print("Array after removing duplicates:", result)
