@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+class NegativeValueExceptions extends Exception {
+    public NegativeValueExceptions(String message) {
+        super(message);
+    }
+}
+
+class UserInputProcessor2 {
+    public void processInput(int value) throws NegativeValueException {
+        if (value < 0) {
+            throw new NegativeValueException("Negative values are not allowed");
+        }
+        // Process the value
+    }
+}
+
+public class ClassThrow {
+    public static void main(String[] args) {
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter a non-negative integer: ");
+            int inputValue = scanner.nextInt();
+            UserInputProcessor2 processor = new UserInputProcessor2();
+            processor.processInput(inputValue);
+            System.out.println("Input value is valid.");
+        } catch (NegativeValueException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
